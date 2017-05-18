@@ -1,3 +1,3 @@
 # mongodbjavaprac
 
-Practising Java - MongoDB 
+Practising MongoDB 
