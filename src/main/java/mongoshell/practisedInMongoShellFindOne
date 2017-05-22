@@ -1,0 +1,21 @@
+
+//findOne is like the where clause in sql
+> db.firstMongoDB.findOne({name:"Hari"})
+{
+	"_id" : ObjectId("591e19c618fb8976e3abce51"),
+	"name" : "Hari",
+	"surname" : "Rao",
+	"adress" : {
+		"firstline" : "Apt 603",
+		"secondline" : "81 Adelaide Street"
+	}
+}
+
+//name:true is similar to selecting the required fields in SQL select statement. _id is returned even though it is not part of
+selection fields
+> db.firstMongoDB.findOne({name:"Hari"},{name:true})
+{ "_id" : ObjectId("591e19c618fb8976e3abce51"), "name" : "Hari" }
+
+//To avoid _id being returned it can be turned off as shown below.
+> db.firstMongoDB.findOne({name:"Hari"},{name:true,_id:false})
+{ "name" : "Hari" }

@@ -1,0 +1,54 @@
+> show dbs
+local             0.078GB
+my_First_mongoDB  0.078GB
+test              0.078GB
+
+> use my_First_mongoDB
+switched to db my_First_mongoDB
+
+> show collections
+firstMongoDB
+system.indexes
+
+> db.firstMongoDB.find()
+{ "_id" : ObjectId("591e19af18fb8976e3abce4f"), "a" : 1, "b" : 2, "c" : 3 }
+{ "_id" : ObjectId("591e19b418fb8976e3abce50"), "a" : 1, "b" : 2, "c" : 3, "d" : 4 }
+{ "_id" : ObjectId("591e19c618fb8976e3abce51"), "name" : "Hari", "surname" : "Rao", "adress" : { "firstline" : "Apt 603", "secondline" : "81 Adelaide Street" } }
+
+> doc = {name:"Hari", designation:"Software Engineer"}
+{ "name" : "Hari", "designation" : "Software Engineer" }
+> db.firstMongoDB.insert(doc)
+WriteResult({ "nInserted" : 1 })
+> db.firstMongoDB.find()
+{ "_id" : ObjectId("591e19af18fb8976e3abce4f"), "a" : 1, "b" : 2, "c" : 3 }
+{ "_id" : ObjectId("591e19b418fb8976e3abce50"), "a" : 1, "b" : 2, "c" : 3, "d" : 4 }
+{ "_id" : ObjectId("591e19c618fb8976e3abce51"), "name" : "Hari", "surname" : "Rao", "adress" : { "firstline" : "Apt 603", "secondline" : "81 Adelaide Street" } }
+{ "_id" : ObjectId("59235ce64dd39ac3e82423cd"), "name" : "Hari", "designation" : "Software Engineer" }
+
+//Pretty formats the output
+> db.firstMongoDB.find().pretty()
+{ "_id" : ObjectId("591e19af18fb8976e3abce4f"), "a" : 1, "b" : 2, "c" : 3 }
+{
+	"_id" : ObjectId("591e19b418fb8976e3abce50"),
+	"a" : 1,
+	"b" : 2,
+	"c" : 3,
+	"d" : 4
+}
+{
+	"_id" : ObjectId("591e19c618fb8976e3abce51"),
+	"name" : "Hari",
+	"surname" : "Rao",
+	"adress" : {
+		"firstline" : "Apt 603",
+		"secondline" : "81 Adelaide Street"
+	}
+}
+{
+	"_id" : ObjectId("59235ce64dd39ac3e82423cd"),
+	"name" : "Hari",
+	"designation" : "Software Engineer"
+}
+
+//Find brings back all the records from the collection and prints in batch of 20  in the shell. To navigate to the next 20
+type 'it'.
