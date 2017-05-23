@@ -1,0 +1,32 @@
+
+> db.firstMongoDB.find({a:{$gt:1}})
+{ "_id" : ObjectId("5924a1349648180bab116620"), "a" : 2, "b" : 3, "c" : 4 }
+
+> db.firstMongoDB.find({a:{$gte:2}})
+{ "_id" : ObjectId("5924a1349648180bab116620"), "a" : 2, "b" : 3, "c" : 4 }
+> db.firstMongoDB.find({a:{$lte:2}})
+{ "_id" : ObjectId("591e19af18fb8976e3abce4f"), "a" : 1, "b" : 2, "c" : 3 }
+{ "_id" : ObjectId("591e19b418fb8976e3abce50"), "a" : 1, "b" : 2, "c" : 3, "d" : 4 }
+{ "_id" : ObjectId("5924a1349648180bab116620"), "a" : 2, "b" : 3, "c" : 4 }
+> db.firstMongoDB.find({a:{$lt:2}})
+{ "_id" : ObjectId("591e19af18fb8976e3abce4f"), "a" : 1, "b" : 2, "c" : 3 }
+{ "_id" : ObjectId("591e19b418fb8976e3abce50"), "a" : 1, "b" : 2, "c" : 3, "d" : 4 }
+
+//These operators can also be applied for Strings
+
+> db.firstMongoDB.find({surname:{$gt:"R"}})
+{ "_id" : ObjectId("591e19c618fb8976e3abce51"), "name" : "Hari", "surname" : "Rao", "adress" : { "firstline" : "Apt 603", "secondline" : "81 Adelaide Street" } }
+{ "_id" : ObjectId("5924a82c9648180bab116622"), "name" : "Test1", "surname" : "bbc" }
+> db.firstMongoDB.find()
+{ "_id" : ObjectId("591e19af18fb8976e3abce4f"), "a" : 1, "b" : 2, "c" : 3 }
+{ "_id" : ObjectId("591e19b418fb8976e3abce50"), "a" : 1, "b" : 2, "c" : 3, "d" : 4 }
+{ "_id" : ObjectId("591e19c618fb8976e3abce51"), "name" : "Hari", "surname" : "Rao", "adress" : { "firstline" : "Apt 603", "secondline" : "81 Adelaide Street" } }
+{ "_id" : ObjectId("59235ce64dd39ac3e82423cd"), "name" : "Hari", "designation" : "Software Engineer" }
+{ "_id" : ObjectId("5924a1349648180bab116620"), "a" : 2, "b" : 3, "c" : 4 }
+{ "_id" : ObjectId("5924a8289648180bab116621"), "name" : "Test1", "surname" : "Abc" }
+{ "_id" : ObjectId("5924a82c9648180bab116622"), "name" : "Test1", "surname" : "bbc" }
+> db.firstMongoDB.find({surname:{$lt:"R"}})
+{ "_id" : ObjectId("5924a8289648180bab116621"), "name" : "Test1", "surname" : "Abc" }
+> db.firstMongoDB.find({surname:{$gte:"R"}})
+{ "_id" : ObjectId("591e19c618fb8976e3abce51"), "name" : "Hari", "surname" : "Rao", "adress" : { "firstline" : "Apt 603", "secondline" : "81 Adelaide Street" } }
+{ "_id" : ObjectId("5924a82c9648180bab116622"), "name" : "Test1", "surname" : "bbc" }
